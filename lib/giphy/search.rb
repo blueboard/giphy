@@ -15,6 +15,11 @@ module Giphy
       gif.build_batch_from(result)
     end
 
+    def autocomplete(keyword)
+      result = client.autocomplete(keyword)
+      term.build_batch_from(result)
+    end
+
     def favorite(id)
       result = client.favorite(id)
       favorite_gif.new(result)
@@ -55,6 +60,10 @@ module Giphy
 
     def random_gif
       Giphy::RandomGif
+    end
+
+    def term
+      Giphy::Term
     end
   end
 end

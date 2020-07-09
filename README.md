@@ -54,6 +54,11 @@ Giphy.translate('geek')
 Giphy.search('funny cat', {limit: 50, offset: 25})
 ````
 
+#### Autocomplete
+````ruby
+Giphy.autocomplete('fun')
+````
+
 #### Favorites
 Write
 ````ruby

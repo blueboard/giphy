@@ -43,6 +43,16 @@ describe Giphy::Client do
     end
   end
 
+  describe "#autocomplete" do
+    it "does a GET on the 'search/tags' endpoint" do
+      allow(Giphy::Request).
+        to receive(:get).
+        with('/search/tags', { q: 'keyword' }).
+        and_return(api_response)
+      expect(subject.autocomplete('keyword')).to eq(response)
+    end
+  end
+
   describe "#favorite" do
     it "does a POST on the 'favorites' endpoint" do
       allow(Giphy::Request).
