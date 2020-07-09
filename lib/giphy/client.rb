@@ -13,6 +13,10 @@ module Giphy
       get('/search', options_hash)
     end
 
+    def autocomplete(keyword)
+      get('/search/tags', q: keyword)
+    end
+
     def favorite(id)
       post("/#{id}/favorites")
     end

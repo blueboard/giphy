@@ -36,6 +36,14 @@ describe Giphy::Search do
     end
   end
 
+  describe "#autocomplete" do
+    it "returns a batch of Terms from the client result" do
+      allow(client).to receive(:autocomplete).with('keyword').and_return(client_result)
+      allow(Giphy::Term).to receive(:build_batch_from).with(client_result).and_return(response)
+      expect(subject.autocomplete('keyword')).to eq response
+    end
+  end
+
   describe "#favorite" do
     it "returns a new FavoriteGifs from the client result" do
       allow(client).to receive(:favorite).with('wdsf34df').and_return(client_result)
