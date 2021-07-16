@@ -1,6 +1,5 @@
 require 'faraday'
 require 'faraday_middleware'
-require 'faraday_middleware/parse_oj'
 
 module Giphy
   class Request
